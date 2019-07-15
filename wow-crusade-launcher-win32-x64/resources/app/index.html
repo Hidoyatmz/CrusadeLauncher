@@ -1,0 +1,207 @@
+<html>
+<head>
+	<title>ArgusServers - WoW</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+	<script type = "text/javascript" src = "index.js" ></script>
+</head>
+<body style="-webkit-app-region: drag;">
+<nav class="navbar navbar-expand-md navbar-dark">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+        	<a class="navbar-brand"><img src="img/CrusadePNG2.png" height="32" width="36"></a>
+            <li id="gametext" class="nav-item active">
+                <a class="nav-link" href="#" onclick="showgame()"><i class="fas fa-gamepad"></i> JOUER</a>
+            </li>
+            <li id="newstext" class="nav-item">
+                <a class="nav-link" href="#" onclick="shownews()"><i class="fas fa-info-circle"></i> NEWS</a>
+			</li>
+			<li id="patchtext" class="nav-item">
+                <a class="nav-link" href="#" onclick="showpatch()"><i class="fas fa-store"></i> PATCHS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="openstore()"><i class="fas fa-store"></i> BOUTIQUE</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="opentops()"><i class="fas fa-trophy"></i> TOPS</a>
+			</li>
+        </ul>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-2 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-user-plus"></i> SIGN UP</a>
+            </li>
+            <li class="nav-item">
+                <a id="test" class="nav-link" href="#"><i class="fas fa-user"></i> LOGIN</a>
+			</li> -->
+			<li class="nav-item-mod">
+				<a href="#" onclick="options()"><i class="fas fa-cog nav-item-icon-cog"></i></a>
+			</li>
+			<li class="nav-item-mod">
+				<a href="#" id="close" onclick="window.top.close(); return false"><i class="fas fa-times nav-item-icon"></i></a>
+			</li>
+        </ul>
+    </div>
+</nav>
+<div id="game" class="container-fluid">
+	<div class="row">
+		<div id="alert" class="col-md-2">
+			<article class="alert">
+				<i class="fas fa-times close-alert" onclick="closealert()"></i>
+				<h1 class="title-alert"><i class="fas fa-exclamation-triangle icon-alert"></i> Attention <i class="fas fa-exclamation-triangle icon-alert"></i></h1>
+				<hr>
+				<p>Une maintenance des serveurs aura lieu le 14/07/2019 de 8h à 12h UTC.</p>
+			</article>
+		</div>
+		<div class="col-md-2"></div>
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<article>
+				<h1>Status</h1>
+				<hr>
+				<p>Valgarde<span class="customspan">En ligne <i class="far fa-check-circle"></i></span></p>
+				<p>Dev<span class="customspan">En ligne <i class="far fa-check-circle"></i></span></p>
+			</article>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8"></div>
+		<div class="col-md-4">
+			<div class="topvote">
+				<article>
+					<h1>Top Vote</h1>
+					<hr>
+					<p><a id="name1"></a><span class="customspan" id="vote1"></span></p>
+					<p><a id="name2"></a><span class="customspan" id="vote2"></span></p>
+					<p><a id="name3"></a><span class="customspan" id="vote3"></span></p>
+					<p><a id="name4"></a><span class="customspan" id="vote4"></span></p>
+					<p><a id="name5"></a><span class="customspan" id="vote5"></span></p>
+				</article>
+			</div>
+		</div>
+	</div>
+	<div class="box-mid">
+		<h5 class="credits">© 2019 www.wow-crusade.com | Launcher 1.0.0<br>Any representation or reproduction in whole or in part made without the consent of the author or his successors in title or cause is illicit. It is the same for translation, adaptation or transformation, arrangement or reproduction by any art or process.</h5>
+	</div>
+	<div class="box-right">
+		<button class="playbutton" onclick="playgame()"><span>J O U E R </span></button>
+	</div>
+	<div class="box-bottom-left-realm">
+		<button class="realmbutton" onclick="updatefile()"><span>Realmlist</span></button>
+	</div>
+	<div class="box-bottom-left">
+		<a href="https://discordapp.com/invite/xEye7sA" target="_blank" class="socials"><img src="img/discord.png" width="52" height="52"></a><a href="#" target="_blank" class="socials"><img src="img/twitterv2.png" width="48" height="48"></a><a href="https://www.argus-servers.com/" target="_blank" class="socials"><img src="img/browser.png" width="52" height="52"></a>
+	</div>
+</div>
+<div id="news" class="container hidecontent">
+	<article style="overflow: auto; max-height: 65vh;">
+		<h1>Patch 1.0.0</h1>
+		<hr>
+		<ul>
+			<p>Launcher: </p>
+			<li>The launcher has been released.</li>
+			<li>The launcher has been released.</li>
+			<li>The launcher has been released.</li>
+			<li>The launcher has been released.</li>
+			<br><p>In-game: </p>
+			<li>The launcher has been released.</li>
+			<li>The launcher has been released.</li>
+			<li>The launcher has been released.</li>
+			<br><p>Launcher: </p>
+			<li>The launcher has been released.</li>
+			<li>The launcher has been released.</li>
+			<li>The launcher has been released.</li>
+			<li>The launcher has been released.</li>
+			<br><p>In-game: </p>
+			<li>The launcher has been released.</li>
+			<li>The launcher has been released.</li>
+			<li>The launcher has been released.</li>
+		</ul>
+	</article>
+	<div class="box-right">
+		<button class="playbutton"><span>P L A Y </span></button>
+	</div>
+	<div class="box-mid">
+		<h5 class="credits">© 2019 www.argus-servers.com | Launcher 1.0.0<br>Any representation or reproduction in whole or in part made without the consent of the author or his successors in title or cause is illicit. It is the same for translation, adaptation or transformation, arrangement or reproduction by any art or process.</h5>
+	</div>
+	<div class="box-bottom-left">
+		<a href="https://discordapp.com/invite/xEye7sA" target="_blank" class="socials"><img src="img/discord.png" width="52" height="52"></a><a href="#" target="_blank" class="socials"><img src="img/twitterv2.png" width="48" height="48"></a><a href="https://www.argus-servers.com/" target="_blank" class="socials"><img src="img/browser.png" width="52" height="52"></a>
+	</div>
+</div>
+
+<div id="patch" class="container hidecontent">
+	<!--<iframe 
+		style="-webkit-app-region: none; margin: 0; padding: 0;"
+		id="inlineFrameExample"
+		title="Inline Frame Example"
+		width="1100"
+		height="550"
+		src="https://wow-crusade.com/app/login.php">
+	</iframe>-->
+	<article>
+		<h1>Patchs téléchargable:</h1>
+		<hr>
+		<div>
+			<button class="patchbutton" onclick="downloadpatchA()"><span>Patch A</span></button>
+			<button class="patchbutton" onclick="downloadpatch()"><span>Patch B</span></button>
+			<button class="patchbutton" onclick="downloadpatch()"><span>Patch C</span></button>
+			<button class="patchbutton" onclick="downloadpatch()"><span>Patch D</span></button>
+		</div>
+	</article>
+	<div class="box-mid" style="text-align: center;">
+		<h5 class="status" id="status"></h5>
+		<div id="progress" class="progress" style="opacity: 0;">
+		  <div id="progressbar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;"> <a id="perct">100%</a>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<script>
+    var unirest = require('unirest');
+    unirest.get("https://wow-crusade.com/api/")
+    .send()
+    .end(response=> {
+        if (response.ok) {
+            var data = response.body
+            var obj = JSON.parse(data)
+
+			var name1 = document.getElementById('name1');
+			var vote1 = document.getElementById("vote1");
+			name1.innerHTML = obj[0].username.slice(0, -3) + "***";
+			vote1.innerHTML = obj[0].totalvote;
+
+			var name2 = document.getElementById('name2');
+			var vote2 = document.getElementById("vote2");
+			name2.innerHTML = obj[1].username.slice(0, -3) + "***";
+			vote2.innerHTML = obj[1].totalvote;
+
+			var name3 = document.getElementById('name3');
+			var vote3 = document.getElementById("vote3");
+			name3.innerHTML = obj[2].username.slice(0, -3) + "***";
+			vote3.innerHTML = obj[2].totalvote;
+
+			var name4 = document.getElementById('name4');
+			var vote4 = document.getElementById("vote4");
+			name4.innerHTML = obj[3].username.slice(0, -3) + "***";
+			vote4.innerHTML = obj[3].totalvote;
+
+			var name5 = document.getElementById('name5');
+			var vote5 = document.getElementById("vote5");
+			name5.innerHTML = obj[4].username.slice(0, -3) + "***";
+			vote5.innerHTML = obj[4].totalvote;
+
+        } else {
+            con.log("Got an error: ", response.error)
+        }
+    })
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

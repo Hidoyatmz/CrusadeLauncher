@@ -1,0 +1,41 @@
+{
+  "name": "wow-crusade-launcher",
+  "version": "1.0.1",
+  "description": "Launcher of WoW-Crusade.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds --icon=icon.ico --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Launcher WoW-Crusade.\""
+  },
+  "electronPackagerConfig": {
+    "icon": "icon.ico"
+  },
+  "keywords": [
+    "WoW-Crusade",
+    "Wow",
+    "Launcher"
+  ],
+  "author": "Hidoyatmz",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^4.1.1",
+    "electron-builder": "^21.0.15"
+  },
+  "dependencies": {
+    "@types/opn": "^5.5.0",
+    "discord-rpc": "^3.0.2",
+    "discord.js": "^11.5.1",
+    "dist": "^0.1.2",
+    "electron-download-manager": "^2.3.0",
+    "file-system": "^2.2.2",
+    "get-json": "^1.0.1",
+    "git": "^0.1.5",
+    "mariadb": "^2.0.5",
+    "mysql": "^2.17.1",
+    "open": "^6.0.0",
+    "opn": "^6.0.0",
+    "request": "^2.88.0",
+    "uglify-js": "^3.6.0",
+    "unirest": "^0.6.0"
+  }
+}

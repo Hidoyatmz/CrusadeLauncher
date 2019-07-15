@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>ArgusServers - WoW</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="css/options.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script type = "text/javascript" src = "options.js" ></script>
+    
+</head>
+<body>
+    <h1>Configuration</h1>
+    <hr>
+    <a href="#" id="close" onclick="window.top.close(); return false"><i class="fas fa-times close-icon"></i></a>
+    <div class="directory">
+        <h4>WoW Directory (Current) : <span id="directory"></span></h4>
+        <div class="changedirectory">
+            <input id="myFile" type="file" webkitdirectory />
+            <button onclick="applychanges()">Apply changes</button>
+        </div>
+    </div>
+</body>
+
+<script>
+var fs = require('fs');
+var userData = JSON.parse(fs.readFileSync('userData.json', 'utf-8'));
+
+if(userData['Informations']) {
+    var text = document.getElementById("directory");
+    text.innerHTML = userData['Informations'].WoWDirectory;
+}
+
+function applychanges() {
+    const con = require('electron').remote.getGlobal('console')
+    con.log("APPLY");
+
+    var directory = document.getElementById("myFile").files[0].path;
+
+    var text = document.getElementById("directory");
+    text.innerHTML = directory
+
+    if(!userData["Informations"]) userData["Informations"] = {
+        WoWDirectory: "null"
+    }
+
+    userData["Informations"].WoWDirectory = directory;
+
+    fs.writeFile('userData.json', JSON.stringify(userData), (err) => {
+        if (err) con.log(err);
+    });
+}
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
