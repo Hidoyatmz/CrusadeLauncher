@@ -1,10 +1,13 @@
 {
   "name": "wow-crusade-launcher",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Launcher of WoW-Crusade.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "dev": "cross-env NODE_ENV=development electron .",
+    "pack": "electron-builder --dir",
+    "build": "electron-builder",
     "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds --icon=icon.ico --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Launcher WoW-Crusade.\""
   },
   "electronPackagerConfig": {
@@ -14,11 +17,33 @@
     "WoW-Crusade",
     "Crusade WoW"
   ],
+  "postinstall": "electron-builder install-app-deps",
   "author": "Hidoyatmz",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^4.1.1",
     "electron-builder": "^21.0.15"
+  },
+  "build": {
+    "appId": "com.matiastucci.autoupdate",
+    "productName": "AutoUpdater",
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "icon": "icons/icon.ico",
+      "target": [
+        "squirrel"
+      ]
+    },
+    "squirrelWindows": {
+      "iconUrl": "https://raw.githubusercontent.com/matiastucci/electron-auto-updater-example/master/icons/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "deb"
+      ]
+    }
   },
   "repository": {
     "type": "git",
@@ -30,6 +55,7 @@
     "discord-rpc": "^3.0.2",
     "discord.js": "^11.5.1",
     "dist": "^0.1.2",
+    "electron-builder-squirrel-windows": "^21.0.16",
     "electron-download-manager": "^2.3.0",
     "electron-is-dev": "^1.1.0",
     "electron-updater": "^4.1.2",
