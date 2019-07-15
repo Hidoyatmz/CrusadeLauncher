@@ -1,6 +1,6 @@
 {
   "name": "wow-crusade-launcher",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Launcher of WoW-Crusade.",
   "main": "main.js",
   "scripts": {
@@ -28,6 +28,7 @@
     "dist": "^0.1.2",
     "electron-download-manager": "^2.3.0",
     "electron-is-dev": "^1.1.0",
+    "electron-updater": "^4.1.2",
     "file-system": "^2.2.2",
     "get-json": "^1.0.1",
     "git": "^0.1.5",

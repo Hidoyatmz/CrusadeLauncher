@@ -1,6 +1,6 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, autoUpdater, dialog} = require('electron')
-
+const {app, BrowserWindow, dialog} = require('electron')
+const { autoUpdater } = require("electron-updater")
 var path = require('path')
 const fs = require('fs');
 const client = require('discord-rich-presence')('560503963393196041');
@@ -69,7 +69,7 @@ function createWindow () {
 }
 
 
-const server = 'https://hazel.hidoyatmz.now.sh'
+const server = 'https://hazel-ljyycyote.now.sh/'
 const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 
 autoUpdater.setFeedURL(feed)
@@ -78,7 +78,7 @@ console.log(feed)
 
 setInterval(() => {
   autoUpdater.checkForUpdates()
-}, 60000)
+}, 5000)
 
 const isDev = require('electron-is-dev');
 
