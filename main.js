@@ -1,5 +1,6 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, autoUpdater, dialog} = require('electron')
+
 var path = require('path')
 const fs = require('fs');
 const client = require('discord-rich-presence')('560503963393196041');
@@ -68,10 +69,43 @@ function createWindow () {
 }
 
 
-const server = 'https://your-deployment-url.com'
+const server = 'https://hazel-nz08zqzm8.now.sh'
 const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 
+autoUpdater.setFeedURL(feed)
+
 console.log(feed)
+
+setInterval(() => {
+  autoUpdater.checkForUpdates()
+}, 60000)
+
+const isDev = require('electron-is-dev');
+
+if (isDev) {
+	console.log('Running in development');
+} else {
+	console.log('Running in production');
+}
+
+autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+  const dialogOpts = {
+    type: 'info',
+    buttons: ['Restart', 'Later'],
+    title: 'Application Update',
+    message: process.platform === 'win32' ? releaseNotes : releaseName,
+    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+  }
+
+  dialog.showMessageBox(dialogOpts, (response) => {
+    if (response === 0) autoUpdater.quitAndInstall()
+  })
+})
+
+autoUpdater.on('error', message => {
+  console.error('There was a problem updating the application')
+  console.error(message)
+})
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
