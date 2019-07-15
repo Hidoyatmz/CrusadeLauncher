@@ -69,7 +69,7 @@ function createWindow () {
 }
 
 
-const server = 'https://hazel-nz08zqzm8.now.sh'
+const server = 'https://hazel.hidoyatmz.now.sh'
 const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 
 autoUpdater.setFeedURL(feed)
