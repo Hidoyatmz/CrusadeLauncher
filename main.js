@@ -1,6 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, dialog} = require('electron')
-const { autoUpdater } = require("electron-updater")
+const {app, BrowserWindow} = require('electron')
 var path = require('path')
 const fs = require('fs');
 const client = require('discord-rich-presence')('560503963393196041');
@@ -68,18 +67,6 @@ function createWindow () {
 
 }
 
-
-const server = 'https://hazel-ljyycyote.now.sh/'
-const feed = `${server}/update/${process.platform}/${app.getVersion()}`
-
-autoUpdater.setFeedURL(feed)
-
-console.log(feed)
-
-setInterval(() => {
-  autoUpdater.checkForUpdates()
-}, 5000)
-
 const isDev = require('electron-is-dev');
 
 if (isDev) {
@@ -88,24 +75,12 @@ if (isDev) {
 	console.log('Running in production');
 }
 
-autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-  const dialogOpts = {
-    type: 'info',
-    buttons: ['Restart', 'Later'],
-    title: 'Application Update',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
-  }
-
-  dialog.showMessageBox(dialogOpts, (response) => {
-    if (response === 0) autoUpdater.quitAndInstall()
-  })
+require('update-electron-app')({
+  repo: 'Hidoyatmz/CrusadeLauncher',
+  updateInterval: '5 minutes'
 })
 
-autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
-  console.error(message)
-})
+console.log("CHECK UPDATE")
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
