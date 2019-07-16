@@ -182,16 +182,18 @@
     .end(alert=> {
         if (alert.ok) {
             var dataalert = alert.body
-            var obj = JSON.parse(dataalert)
-			var message = obj[0].message;
-			if(message == null) {
-				var alert = document.getElementById("alert");
-				alert.style.opacity = 0;
-			} else {
+			var obj = JSON.parse(dataalert)
+			var objlen = obj.length;
+
+			if(objlen > 1){
+				var message = obj[0].message;
 				var alert = document.getElementById("alert");
 				var messagealert = document.getElementById("messagealert");
 				alert.style.opacity = 1;
 				messagealert.innerHTML = message;
+			} else {
+				var alert = document.getElementById("alert");
+				alert.style.opacity = 0;
 			}
 
         } else {
