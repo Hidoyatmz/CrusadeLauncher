@@ -1,6 +1,6 @@
 {
   "name": "wow-crusade-launcher",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Launcher of WoW-Crusade.",
   "main": "main.js",
   "scripts": {
