@@ -1,6 +1,6 @@
 {
   "name": "wow-crusade-launcher",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Launcher of WoW-Crusade.",
   "main": "main.js",
   "scripts": {
@@ -25,13 +25,13 @@
     "electron-builder": "^21.0.15"
   },
   "build": {
-    "appId": "com.matiastucci.autoupdate",
-    "productName": "AutoUpdater",
+    "appId": "com.crusade.autoupdate",
+    "productName": "WoW-Crusade Launcher",
     "mac": {
       "category": "public.app-category.developer-tools"
     },
     "win": {
-      "icon": "icons/icon.ico",
+      "icon": "icon.ico",
       "target": [
         "squirrel"
       ]
