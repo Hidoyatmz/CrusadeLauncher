@@ -1,1 +1,1 @@
-ArgusLauncher
+WoWCrusade Launcher
